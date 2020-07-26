@@ -1,11 +1,11 @@
 import * as actionType from "./actionTypes";
 import { getMovieListApi } from "./api";
-export function getMovieList() {
+export function getMovieList({ searchTerm, ratingFilter, pageNo }) {
   return function (dispatch) {
     dispatch({
       type: actionType.FETCH_MOVIES_BEGIN,
     });
-    getMovieListApi()
+    getMovieListApi({ searchTerm, ratingFilter, pageNo })
       .then((res) => {
         dispatch({
           type: actionType.FETCH_MOVIES_SUCCESS,
@@ -18,5 +18,12 @@ export function getMovieList() {
           error: err,
         });
       });
+  };
+}
+
+export function setMovie(movie) {
+  return {
+    type: actionType.SELECT_MOVIE_DETAIL,
+    payload: movie,
   };
 }

@@ -2,7 +2,122 @@
   "movieList": [
     {
       "id": 1,
-      "name": "Kaho Na Pyar Hai??",
+      "name": "Watchmen",
+      "cast": [
+        {
+          "cast_id": 1,
+          "name1": "Carla Gugino",
+          "name2": "Jeffrey Dean Morgan"
+        }
+      ],
+      "Director": "Zack Snyder",
+      "Release_date": "2009-02-23",
+      "Run_time": "137m",
+      "rating": 3,
+      "about": "Dil Bechara ( transl. The helpless heart) is a 2020 Indian Hindi-language coming-of-age romantic drama directed by Mukesh Chhabra in his directorial debut. Based on John Green's 2012 novel The Fault in Our Stars, it stars Sushant Singh Rajput and Sanjana Sanghi.",
+      "image": [
+        {
+          "url1": "https://upload.wikimedia.org/wikipedia/en/b/bc/Watchmen_film_poster.jpg",
+          "url2": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR-ZEki1rjguh_nyvM6tOaw7He9ov-sjiF7_Q&usqp=CAU",
+          "url3": "https://www.wired.com/images_blogs/underwire/images/2009/03/04/watchmen_group_2.jpg"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Ala Vaikunthapurramloo",
+      "cast": [
+        {
+          "cast_id": 1,
+          "name1": "Allu Arjun",
+          "name2": "Pooja Hegde"
+        }
+      ],
+      "Director": "Trivikram Srinivas",
+      "Release_date": "2020-01-12",
+      "Run_time": "145m",
+      "rating": 3,
+      "about": "Dil Bechara ( transl. The helpless heart) is a 2020 Indian Hindi-language coming-of-age romantic drama directed by Mukesh Chhabra in his directorial debut. Based on John Green's 2012 novel The Fault in Our Stars, it stars Sushant Singh Rajput and Sanjana Sanghi.",
+      "image": [
+        {
+          "url1": "https://images.thequint.com/thequint/2020-01/a7afed82-3493-47b0-ae80-41986249e4e7/3.jpg",
+          "url2": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTUNJWP01vF-_a07IO48VrC3fkNb1Hq6pJj1Q&usqp=CAU",
+          "url3": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRZULKwtsb83CVpovb9AqE14REItGZ0SXi9KA&usqp=CAU"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "The Avengers",
+      "cast": [
+        {
+          "cast_id": 1,
+          "name1": " Scarlett Johansson",
+          "name2": "Chris Evans"
+        }
+      ],
+      "Director": "Joss Whedon",
+      "Release_date": "2019-04-26",
+      "Run_time": "145m",
+      "rating": 3,
+      "about": "Dil Bechara ( transl. The helpless heart) is a 2020 Indian Hindi-language coming-of-age romantic drama directed by Mukesh Chhabra in his directorial debut. Based on John Green's 2012 novel The Fault in Our Stars, it stars Sushant Singh Rajput and Sanjana Sanghi.",
+      "image": [
+        {
+          "url1": "https://www.joblo.com/assets/images/joblo/posters/2019/03/avengers-endgame-poster-xl.jpg",
+          "url2": "https://i.pinimg.com/originals/14/bd/68/14bd68f71316a3e17e8c5d7be142b69a.jpg",
+          "url3": "https://i.ebayimg.com/images/g/Mv8AAOSw2q9a4xZa/s-l300.jpg"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "The Dark Knight",
+      "cast": [
+        {
+          "cast_id": 1,
+          "name1": "Christian Bale",
+          "name2": "Michael Caine"
+        }
+      ],
+      "Director": "Christopher Nolan",
+      "Release_date": "2018-07-14",
+      "Run_time": "190m",
+      "rating": 4,
+      "about": "Dil Bechara ( transl. The helpless heart) is a 2020 Indian Hindi-language coming-of-age romantic drama directed by Mukesh Chhabra in his directorial debut. Based on John Green's 2012 novel The Fault in Our Stars, it stars Sushant Singh Rajput and Sanjana Sanghi.",
+      "image": [
+        {
+          "url1": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ1Zd2llyEUlW8bFnqJm7iz72D5uzhxG6CFUQ&usqp=CAU",
+          "url2": "https://i.pinimg.com/originals/c3/36/62/c33662c596d7ee3bd28a8aadecebe820.jpg",
+          "url3": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRB2Z2eT8EOquI_1WazvvHTAdAOnVSKLRHUBg&usqp=CAU"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Spider Man",
+      "cast": [
+        {
+          "cast_id": 1,
+          "name1": "obey Maguire",
+          "name2": "Kirsten Dunst"
+        }
+      ],
+      "Director": "Insomniac Games",
+      "Release_date": "2018-09-07",
+      "Run_time": "180m",
+      "rating": 5,
+      "about": "Dil Bechara ( transl. The helpless heart) is a 2020 Indian Hindi-language coming-of-age romantic drama directed by Mukesh Chhabra in his directorial debut. Based on John Green's 2012 novel The Fault in Our Stars, it stars Sushant Singh Rajput and Sanjana Sanghi.",
+      "image": [
+        {
+          "url1": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRWQy279FoTR1NBeL3K7XUvM_qZ9a4KovY4JA&usqp=CAU",
+          "url2": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQCcVkfOSikd00u3rHA7LjPNEwDRnpWqhrW7A&usqp=CAU",
+          "url3": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT8uOFaHc4af9Vjsb2NWCZCfZ-moRFNl7r7qg&usqp=CAU"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Kaho Na Pyar Hai",
       "cast": [
         {
           "cast_id": 1,
@@ -10,125 +125,110 @@
           "name2": "Amisha Patel"
         }
       ],
+      "Director": "Rakesh Roshan",
+      "Release_date": "2000-01-14",
+      "Run_time": "190m",
       "rating": 3,
-      "image": []
+      "about": "Dil Bechara ( transl. The helpless heart) is a 2020 Indian Hindi-language coming-of-age romantic drama directed by Mukesh Chhabra in his directorial debut. Based on John Green's 2012 novel The Fault in Our Stars, it stars Sushant Singh Rajput and Sanjana Sanghi.",
+      "image": [
+        {
+          "url1": "https://upload.wikimedia.org/wikipedia/en/a/a7/Kaho_Naa_Pyaar_Hai_Poster.jpg",
+          "url2": "https://i.pinimg.com/originals/fd/03/69/fd03693f86e9bc217c25549a9ab36f93.jpg",
+          "url3": "https://www.orissapost.com/wp-content/uploads/2020/01/Kaho.jpg"
+        }
+      ]
     },
     {
-      "id": 1,
-      "name": "Kaho Na Pyar Hai",
+      "id": 7,
+      "name": "V for Vendetta",
       "cast": [
         {
           "cast_id": 1,
-          "name1": "Hrithik Roshan2",
-          "name2": "Amisha Patel"
+          "name1": "Natalie Portman",
+          "name2": "Hugo Weaving"
         }
       ],
-      "rating": 2,
-      "image": []
-    },
-    {
-      "id": 1,
-      "name": "Kaho Na Pyar Hai",
-      "cast": [
-        {
-          "cast_id": 1,
-          "name1": "Hrithik Roshan3",
-          "name2": "Amisha Patel"
-        }
-      ],
-      "rating": 4,
-      "image": []
-    },
-    {
-      "id": 1,
-      "name": "Kaho Na Pyar Hai",
-      "cast": [
-        {
-          "cast_id": 1,
-          "name1": "Hrithik Roshan4",
-          "name2": "Amisha Patel"
-        }
-      ],
-      "rating": 1,
-      "image": []
-    },
-    {
-      "id": 1,
-      "name": "Kaho Na Pyar Hai",
-      "cast": [
-        {
-          "cast_id": 1,
-          "name1": "Hrithik Roshan5",
-          "name2": "Amisha Patel"
-        }
-      ],
-      "rating": 2,
-      "image": []
-    },
-    {
-      "id": 1,
-      "name": "Kaho Na Pyar Hai",
-      "cast": [
-        {
-          "cast_id": 1,
-          "name1": "Hrithik Roshan6",
-          "name2": "Amisha Patel"
-        }
-      ],
+      "Director": "James McTeigue",
+      "Release_date": "2005-12-11",
+      "Run_time": "190m",
       "rating": 3,
-      "image": []
+      "about": "Dil Bechara ( transl. The helpless heart) is a 2020 Indian Hindi-language coming-of-age romantic drama directed by Mukesh Chhabra in his directorial debut. Based on John Green's 2012 novel The Fault in Our Stars, it stars Sushant Singh Rajput and Sanjana Sanghi.",
+      "image": [
+        {
+          "url1": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRRvhuSz1PDUvCjXe9N5_JHgqgfsamurMUngg&usqp=CAU",
+          "url2": "https://images-na.ssl-images-amazon.com/images/G/01/digital/video/hero/Movies/Top250/B000I186FW_vforvendetta_UXWB1._SX1080_.jpg",
+          "url3": "https://img.cinemablend.com/filter:scale/quill/5/9/4/1/e/5/5941e5cc3a5231f3739cb35b0980bfbf29222c18.jpg?mw=600"
+        }
+      ]
     },
     {
-      "id": 1,
-      "name": "Kaho Na Pyar Hai",
+      "id": 8,
+      "name": "Yeh Jawaani Hai Deewani ",
       "cast": [
         {
           "cast_id": 1,
-          "name1": "Hrithik Roshan5",
-          "name2": "Amisha Patel"
+          "name1": "Ranbir Kapoor",
+          "name2": "Deepika Padukone"
         }
       ],
-      "rating": 2,
-      "image": []
+      "Director": "Ayan Mukerji",
+      "Release_date": "2013-05-31",
+      "Run_time": "230m",
+      "rating": 3,
+      "about": "Dil Bechara ( transl. The helpless heart) is a 2020 Indian Hindi-language coming-of-age romantic drama directed by Mukesh Chhabra in his directorial debut. Based on John Green's 2012 novel The Fault in Our Stars, it stars Sushant Singh Rajput and Sanjana Sanghi.",
+      "image": [
+        {
+          "url1": "https://m.media-amazon.com/images/M/MV5BODA4MjM2ODk4OF5BMl5BanBnXkFtZTcwNDgzODk1OQ@@._V1_UY1200_CR99,0,630,1200_AL_.jpg",
+          "url2": "https://moviekoop.com/Images/Stories/ranbir-deepika-yjhd.jpg",
+          "url3": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRHOzjtmrr5-PXpycaADLVNBDWNzdOQ6BVp0g&usqp=CAU"
+        }
+      ]
     },
     {
-      "id": 1,
-      "name": "Kaho Na Pyar Hai",
+      "id": 9,
+      "name": "The Space Between Us",
       "cast": [
         {
           "cast_id": 1,
-          "name1": "Hrithik Roshan5",
-          "name2": "Amisha Patel"
+          "name1": "Gary Oldman",
+          "name2": "Asa Butterfield"
         }
       ],
-      "rating": 2,
-      "image": []
+      "Director": "Peter Chelsom",
+      "Release_date": "2017-02-03",
+      "Run_time": "190m",
+      "rating": 3,
+      "about": "Dil Bechara ( transl. The helpless heart) is a 2020 Indian Hindi-language coming-of-age romantic drama directed by Mukesh Chhabra in his directorial debut. Based on John Green's 2012 novel The Fault in Our Stars, it stars Sushant Singh Rajput and Sanjana Sanghi.",
+      "image": [
+        {
+          "url1": "data:image/jpeg;base64,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",
+          "url2": "https://si.wsj.net/public/resources/images/BN-RX878_SPACEB_M_20170202122606.jpg",
+          "url3": "https://m.media-amazon.com/images/M/MV5BNjRlMjFkODctNTI0NS00MDMzLWE5MzEtYmFjZDA4YTI3YjVjL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjk0NDk2ODc@._V1_.jpg"
+        }
+      ]
     },
     {
-      "id": 1,
-      "name": "Kaho Na Pyar Hai",
+      "id": 10,
+      "name": "Hugo",
       "cast": [
         {
           "cast_id": 1,
-          "name1": "Hrithik Roshan5",
-          "name2": "Amisha Patel"
+          "name1": "Asa Butterfield",
+          "name2": "Ben Kingsley"
         }
       ],
-      "rating": 2,
-      "image": []
-    },
-    {
-      "id": 1,
-      "name": "Kaho Na Pyar Hai",
-      "cast": [
+      "Director": "Martin Scorsese",
+      "Release_date": "2011-10-10",
+      "Run_time": "190m",
+      "rating": 3,
+      "about": "Dil Bechara ( transl. The helpless heart) is a 2020 Indian Hindi-language coming-of-age romantic drama directed by Mukesh Chhabra in his directorial debut. Based on John Green's 2012 novel The Fault in Our Stars, it stars Sushant Singh Rajput and Sanjana Sanghi.",
+      "image": [
         {
-          "cast_id": 1,
-          "name1": "Hrithik Roshan5",
-          "name2": "Amisha Patel"
+          "url1": "https://i.pinimg.com/originals/58/84/98/5884987b40d743cc1bef3eec844a3f5f.jpg",
+          "url2": "https://i.ytimg.com/vi/rO32zNsu09s/maxresdefault.jpg",
+          "url3": "https://i.pinimg.com/originals/39/b6/c0/39b6c080949fc0f0a9789fc60fb7c267.jpg"
         }
-      ],
-      "rating": 2,
-      "image": []
+      ]
     }
   ]
 }

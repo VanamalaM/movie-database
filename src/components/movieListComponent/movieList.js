@@ -7,8 +7,6 @@ import Typography from "@material-ui/core/Typography";
 import GradeIcon from "@material-ui/icons/Grade";
 import yellow from "@material-ui/core/colors/purple";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import image from "./../../assets/images/endgame.jpg";
-import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 const star = yellow[500];
 
@@ -33,12 +31,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MovieList = ({ moviesData = [] }) => {
+const MovieList = ({ moviesData = [], handleMovieSelection }) => {
   const classes = useStyles();
-  const history = useHistory();
-  const routeToDetail = () => {
-    history.push("/details");
-  };
+  console.log(moviesData);
   return (
     <>
       {moviesData.map((value) => {
@@ -48,12 +43,15 @@ const MovieList = ({ moviesData = [] }) => {
         }
         return (
           // <CardContainer onClick={routeToDetail}></CardContainer>
-          <Card className={classes.root} onClick={routeToDetail}>
+          <Card
+            className={classes.root}
+            onClick={() => handleMovieSelection(value)}
+          >
             <CardActionArea>
               <CardMedia
                 component="img"
-                className={classes.cover}
-                image={image}
+                height="473px"
+                image={value.image[0].url1}
                 title="Live from space album cover"
               />
               <div className={classes.details}>

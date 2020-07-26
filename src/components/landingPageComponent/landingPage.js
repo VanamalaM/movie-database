@@ -1,25 +1,47 @@
 import React, { useState, useEffect } from "react";
 import MovieList from "./../movieListComponent/movieList";
 import styled from "styled-components";
-import { getMovieList } from "./../../redux/action";
+import { getMovieList, setMovie } from "./../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
 import backgroundCover from "./../../assets/images/backgroundCover.jpg";
 import searchIcon from "./../../assets/images/searchicon.png";
+import { useHistory } from "react-router-dom";
 
 const LandingPage = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
-  let maxPage = 99999;
+  const [searchTerm, setSearchTerm] = React.useState("");
+  const [pageNo, setPageNo] = useState(1);
+  const [filterQuery, setFilterQuery] = useState(0);
   useEffect(() => {
-    dispatch(getMovieList());
-  }, []);
+    dispatch(getMovieList({ searchTerm, filterQuery, pageNo }));
+  }, [searchTerm, filterQuery, pageNo]);
   const movies = useSelector((state) => state.movieList.data) || [];
+  const handleChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
 
-  // const [count, setCount] = useState(null);
-  const checkCount = (value) => {
-    let count = 0;
-    if (value === "increment") count = count + 1;
-    if (value === "decrement") count = count - 1;
-    console.log(value, count);
+  const stepPage = (direction) => {
+    let newPage = pageNo;
+    if (direction === "FORWARD") {
+      newPage += 1;
+      if (newPage <= 3) {
+        setPageNo(newPage);
+      }
+    } else if (direction === "BACKWARD") {
+      newPage -= 1;
+      if (newPage >= 1) {
+        setPageNo(newPage);
+      }
+    }
+  };
+  const stars = [1, 2, 3, 4, 5];
+  const handleSelectStarRating = (val) => {
+    setFilterQuery(val);
+  };
+  const handleMovieSelection = (movie) => {
+    history.push("/details");
+    dispatch(setMovie(movie));
   };
   return (
     <Container>
@@ -28,18 +50,36 @@ const LandingPage = () => {
         <SecondTitle>Database</SecondTitle>
       </TitleContainer>
       <FeatureContainer>
-        <FilterButton>Filter By Rating</FilterButton>
-        <Input />
+        <FilterButton>
+          Filter By Rating
+          <RatingDropdown>
+            {stars.map((val) => (
+              <Star
+                active={val <= filterQuery}
+                onClick={() => handleSelectStarRating(val)}
+              />
+            ))}
+          </RatingDropdown>
+        </FilterButton>
+        <Input
+          type="text"
+          placeholder="Search"
+          value={searchTerm}
+          onChange={handleChange}
+        />
       </FeatureContainer>
       <Body>
-        <MovieList moviesData={movies} />
+        <MovieList
+          moviesData={movies}
+          handleMovieSelection={handleMovieSelection}
+        />
       </Body>
       <PaginationContainer>
-        <PageButton hover onClick={() => checkCount("decrement")}>
+        <PageButton hover onClick={() => stepPage("BACKWARD")}>
           {"<"}
         </PageButton>
-        <PageButton>1</PageButton>
-        <PageButton hover onClick={() => checkCount("increment")}>
+        <PageButton>{pageNo}</PageButton>
+        <PageButton hover onClick={() => stepPage("FORWARD")}>
           {">"}
         </PageButton>
       </PaginationContainer>
@@ -52,7 +92,6 @@ const PaginationContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  /* background: #010d18; */
 `;
 const FeatureContainer = styled.div`
   display: flex;
@@ -60,14 +99,17 @@ const FeatureContainer = styled.div`
   justify-content: center;
   margin: 2rem;
   overflow-y: auto;
+  overflow: visible;
 `;
 const FilterButton = styled.div`
   background: #233a50;
   font-size: 1.2rem;
-  padding: 1.2rem;
+  padding: 0.2rem;
   color: white;
   cursor: pointer;
   margin-right: 0.3rem;
+  border-radius: 4px;
+  overflow: visible;
 `;
 const Input = styled.input`
   background: #233a50;
@@ -82,6 +124,24 @@ const Input = styled.input`
   background-repeat: no-repeat;
   background-size: 2rem 2rem;
   background-position: 40rem 1rem;
+`;
+const Star = styled.div`
+  height: 3rem;
+  width: 3rem;
+  filter: ${(props) => (props.active ? "" : "grayscale(100%)")};
+  background-color: yellow;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
 `;
 const PageButton = styled.div`
   padding: 1.1rem;
@@ -137,4 +197,11 @@ const Body = styled.div`
     margin: 3rem;
   }
 `;
+const RatingDropdown = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export default LandingPage;
