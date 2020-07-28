@@ -23,8 +23,12 @@ const useStyles = makeStyles((theme) => ({
     background: "#233a50",
   },
   content: {
+    fontSize:"1rem",
     flex: "1 0 auto",
     color: "#ffffff",
+  },
+  text:{
+    fontSize:"0.8rem",
   },
   star: {
     color: "#FFC107",
@@ -50,16 +54,16 @@ const MovieList = ({ moviesData = [], handleMovieSelection }) => {
             <CardActionArea>
               <CardMedia
                 component="img"
-                height="473px"
+                height="250px"
                 image={value.image[0].url1}
                 title="Live from space album cover"
               />
               <div className={classes.details}>
                 <CardContent className={classes.content}>
-                  <Typography component="h5" variant="h5">
+                  <Typography className={classes.text} variant="h5">
                     {value.name}
                   </Typography>
-                  <Typography variant="subtitle1" color="white">
+                  <Typography className={classes.text} color="white">
                     {value.cast[0].name1}, {value.cast[0].name2}
                   </Typography>
                   <Typography className={classes.star} variant="subtitle1">

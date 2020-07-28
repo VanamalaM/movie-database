@@ -12,10 +12,10 @@ const LandingPage = () => {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = React.useState("");
   const [pageNo, setPageNo] = useState(1);
-  const [filterQuery, setFilterQuery] = useState(0);
+  const [ratingFilter, setFilterQuery] = useState(0);
   useEffect(() => {
-    dispatch(getMovieList({ searchTerm, filterQuery, pageNo }));
-  }, [searchTerm, filterQuery, pageNo]);
+    dispatch(getMovieList({ searchTerm, ratingFilter, pageNo }));
+  }, [searchTerm, ratingFilter, pageNo]);
   const movies = useSelector((state) => state.movieList.data) || [];
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
@@ -38,6 +38,7 @@ const LandingPage = () => {
   const stars = [1, 2, 3, 4, 5];
   const handleSelectStarRating = (val) => {
     setFilterQuery(val);
+    console.log(val)
   };
   const handleMovieSelection = (movie) => {
     history.push("/details");
@@ -55,7 +56,7 @@ const LandingPage = () => {
           <RatingDropdown>
             {stars.map((val) => (
               <Star
-                active={val <= filterQuery}
+                active={val <= ratingFilter}
                 onClick={() => handleSelectStarRating(val)}
               />
             ))}
@@ -92,42 +93,44 @@ const PaginationContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
+  overflow:hidden;
 `;
 const FeatureContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 2rem;
+  margin: 1rem;
   overflow-y: auto;
   overflow: visible;
 `;
 const FilterButton = styled.div`
   background: #233a50;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   padding: 0.2rem;
   color: white;
   cursor: pointer;
   margin-right: 0.3rem;
   border-radius: 4px;
   overflow: visible;
+  width:7rem;
 `;
 const Input = styled.input`
-  background: #233a50;
-  border: 1px solid #122832;
-  padding: 1.3rem;
-  font-size: 1.3rem;
-  width: 40rem;
-  border-radius: 4px;
-  color: #ffffff;
-  outline: none;
-  background-image: url(${searchIcon});
-  background-repeat: no-repeat;
-  background-size: 2rem 2rem;
-  background-position: 40rem 1rem;
+background: #233a50;
+border: 1px solid #122832;
+padding: 0.5em;
+font-size: 1.3rem;
+width: 40rem;
+border-radius: 4px;
+color: #ffffff;
+outline: none;
+background-image: url(${searchIcon});
+background-repeat: no-repeat;
+background-size: 1.5rem 1.5rem;
+background-position: 39rem 0.5rem;
 `;
 const Star = styled.div`
-  height: 3rem;
-  width: 3rem;
+  height: 1rem;
+  width: 1rem;
   filter: ${(props) => (props.active ? "" : "grayscale(100%)")};
   background-color: yellow;
   clip-path: polygon(
@@ -144,8 +147,8 @@ const Star = styled.div`
   );
 `;
 const PageButton = styled.div`
-  padding: 1.1rem;
-  font-size: 1.4rem;
+  padding: 0.5rem;
+  font-size: 0.8rem;
   margin: 1rem 2rem;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -153,7 +156,7 @@ const PageButton = styled.div`
   background-color: ${(props) => (props.color ? props.color : "#233a50")};
   &:hover {
     ${(props) =>
-      props.hover && " background-color: #010d18;transform: scale(1.2);"}
+      props.hover && " background-color: #031f3a;transform: scale(1.2);"}
   }
   transition: all 0.2s ease;
 `;
@@ -167,22 +170,22 @@ const Container = styled.div`
   align-items: stretch;
 `;
 const TitleContainer = styled.div`
-  height: 8rem;
-  background-color: #010d18;
+  height: 4rem;
+  background-color: #031f3a;
   display: flex;
   flex-wrap: wrap;
 `;
-const FirstTitle = styled.h1`
-  font-style: italic;
-  color: #e91e63;
-  font-size: 3rem;
-  margin-left: 10rem;
+const FirstTitle = styled.h4`
+font-style: italic;
+color: #f50057;
+font-size: 1.3rem;
+margin: 1.2rem 0 0 10rem;
 `;
 const SecondTitle = styled.h4`
   font-style: italic;
-  color: white;
-  font-size: 2rem;
-  margin: 2.8rem 1rem;
+  color: #ffffff;
+  font-size: 1rem;
+  margin:1.5rem 0.5rem;
 `;
 
 const Body = styled.div`
@@ -192,13 +195,14 @@ const Body = styled.div`
   flex-wrap: wrap;
   overflow-y: auto;
   & > div {
-    width: 20rem;
+    width: 12rem;
     align-self: baseline;
     margin: 3rem;
   }
 `;
 const RatingDropdown = styled.div`
   width: 100%;
+  margin-top:0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;

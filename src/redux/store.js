@@ -8,8 +8,6 @@ const initValue = {
 
 const composed = compose(
   applyMiddleware(thunk),
-  window["__REDUX_DEVTOOLS_EXTENSION__"] &&
-    window["__REDUX_DEVTOOLS_EXTENSION__"]()
 );
 let store = createStore(counter, initValue, composed);
 
