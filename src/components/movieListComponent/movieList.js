@@ -15,6 +15,9 @@ const useStyles = makeStyles((theme) => ({
       transform: "scale(1.1)",
       transition: "all 0.2s ease",
     },
+    fontFamily: 'Dosis, sans-serif',
+    fontWeight:'400',
+    letterSpacing:'1.5px'
   },
   details: {
     display: "flex",
@@ -24,9 +27,14 @@ const useStyles = makeStyles((theme) => ({
     flex: "1 0 auto",
     color: "#ffffff",
   },
+  textName: {
+    fontFamily: 'Dosis, sans-serif',
+    fontWeight:'700',
+    fontSize:'1rem',
+  },
   text:{
-    // fontFamily:"DosisBold",
     fontSize:"0.8rem",
+    color:"#ffffffd4"
   },
   star: {
     color: "#FFC107",
@@ -57,7 +65,7 @@ const MovieList = ({ moviesData = [], handleMovieSelection }) => {
               />
               <div className={classes.details}>
                 <CardContent className={classes.content}>
-                  <Typography className={classes.text}>
+                  <Typography className={classes.textName} style={{fontFamily: 'Dosis, sans-serif'}}>
                     {value.name}
                   </Typography>
                   <Typography className={classes.text}>

@@ -123,6 +123,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  font-family: Dosis, sans-serif;
+  font-weight:400;
+  letter-spacing:1.5px;
 `;
 const TitleContainer = styled.div`
   height: 4rem;
@@ -167,6 +170,7 @@ const FilterButton = styled.div`
   background: #233a50;
   font-size: 0.8rem;
   padding: 0.2rem;
+  font-weight:600;
   color: white;
   cursor: pointer;
   margin-right: 0.3rem;
@@ -175,8 +179,8 @@ const FilterButton = styled.div`
   width: 7rem;
 `;
 const Star = styled.div`
-  height: 1rem;
-  width: 1rem;
+  height: 1.1rem;
+  width: 1.1rem;
   filter: ${(props) => (props.active ? "" : "grayscale(100%)")};
   background-color: yellow;
   clip-path: polygon(
@@ -212,18 +216,23 @@ const Input = styled.input`
   background-repeat: no-repeat;
   background-size: 1.5rem 1.5rem;
   background-position: 39rem 0.5rem;
+  ::placeholder,
+  ::-webkit-input-placeholder {
+    font-family: Dosis, sans-serif;
+    font-weight:600;
+  }
 `;
 const ToggleButton = styled.div`
   background: ${(props) => (props.active ? "white" : "#233a50")};
   color: ${(props) => (props.active ? "#233a50" : "white")};
   cursor: pointer;
-  margin-left: 0.5rem;
+  margin-left: 0.3rem;
   display: flex;
   align-items: center;
   border-radius: 4px;
   max-width: 8rem;
   text-align: center;
-  font-weight:500;
+  font-weight:600;
 `;
 
 const PaginationContainer = styled.div`
@@ -234,7 +243,7 @@ const PaginationContainer = styled.div`
 `;
 const PageButton = styled.div`
   padding: 0.5rem;
-  font-size: 0.8rem;
+  font-size: 1rem;
   margin: 1rem 2rem;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -245,6 +254,7 @@ const PageButton = styled.div`
       props.hover && " background-color: #031f3a;transform: scale(1.2);"}
   }
   transition: all 0.2s ease;
+  font-weight: 900;
 `;
 
 export default LandingPage;

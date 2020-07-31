@@ -1,6 +1,6 @@
 @font-face{
     font-family:'DosisBold';
-    src:local('DosisBold'), url(./../fonts/Dosis/static/Dosis-Bold.ttf) format('truetype');
+    src:local('DosisBold'), url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&display=swap') format('truetype');
 }
 @font-face{
     font-family:'DosisMedium';

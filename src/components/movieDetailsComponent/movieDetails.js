@@ -142,6 +142,9 @@ const MovieDetails = () => {
   );
 };
 const ContainerDetail = styled.div`
+  font-family: Dosis, sans-serif;
+  font-weight:400;
+  letter-spacing:1.2px;
   width: 100vw;
   height: 100vh;
   background-image: url(${movieDetailBG});
