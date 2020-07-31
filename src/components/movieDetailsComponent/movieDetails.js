@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import movieDetailBG from "./../../assets/images/movieDetailBG.jpg";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -43,10 +43,8 @@ const MovieDetails = () => {
   const classes = useStyles();
   const [booking, setBooking] = useState(false);
   const movie = useSelector((state) => state.movieDetail);
-  console.log(movie);
   const handleBookings = (value) => {
     setBooking(value);
-    console.log(booking);
   };
   return (
     <ContainerDetail>
@@ -63,7 +61,6 @@ const MovieDetails = () => {
                 component="img"
                 className={classes.cover}
                 image={image.url1}
-                title="Live from space album cover"
               />
             ))}
           <div className={classes.details}>
@@ -113,7 +110,7 @@ const MovieDetails = () => {
             <GradeIcon className={classes.star} color={star} />
           </Rating>
           <MovieCast>
-            Director
+            Director:
             <div>{movie.Director}</div>
           </MovieCast>
           <MovieCast>
@@ -134,7 +131,7 @@ const MovieDetails = () => {
           />
           Due to Pandemic situation, bookings are currently closed.
           <BookButton
-            style={{ margin: "5rem 40rem" }}
+            margin= "5rem 40rem"
             onClick={() => handleBookings(false)}
           >
             Close
@@ -148,7 +145,6 @@ const ContainerDetail = styled.div`
   width: 100vw;
   height: 100vh;
   background-image: url(${movieDetailBG});
-  /* display: flex; */
   position: relative;
   &:before {
     position: absolute;
@@ -158,7 +154,7 @@ const ContainerDetail = styled.div`
     top: 0;
     left: 0;
     background-color: #020d18cc;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(1px);
     overflow-y: auto;
   }
 `;
@@ -166,15 +162,14 @@ const TitleContainer = styled.div`
   position: relative;
   display: flex;
   flex-wrap: wrap;
+  font-style: italic;
 `;
 const FirstTitle = styled.h1`
-  font-style: italic;
   color: #e91e63;
   font-size: 3rem;
   margin-left: 10rem;
 `;
 const SecondTitle = styled.h4`
-  font-style: italic;
   color: white;
   font-size: 2rem;
   margin: 2.8rem 1rem;
@@ -186,20 +181,7 @@ const BookButton = styled.div`
   color: white;
   cursor: pointer;
   border-radius: 4px;
-`;
-const BookingPopup = styled.div`
-  position: absolute;
-  background-color: #488f98;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  color: #ffffff;
-  font-size: 2rem;
-  font-style: italic;
-  text-align: center;
-  font-weight: 400;
+  margin: ${(props) => (props.margin ? props.margin : 0)};
 `;
 const MovieDetailContainer = styled.div`
   display: flex;
@@ -248,6 +230,20 @@ const MovieCast = styled(MovieContent)`
     font-size: 1rem;
     margin-top: 1rem;
   }
+`;
+const BookingPopup = styled.div`
+  position: absolute;
+  background-color: #488f98;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  color: #ffffff;
+  font-size: 2rem;
+  font-style: italic;
+  text-align: center;
+  font-weight: 400;
 `;
 
 export default MovieDetails;

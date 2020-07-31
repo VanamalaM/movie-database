@@ -63,9 +63,9 @@
       "about": "Dil Bechara ( transl. The helpless heart) is a 2020 Indian Hindi-language coming-of-age romantic drama directed by Mukesh Chhabra in his directorial debut. Based on John Green's 2012 novel The Fault in Our Stars, it stars Sushant Singh Rajput and Sanjana Sanghi.",
       "image": [
         {
-          "url1": "https://www.joblo.com/assets/images/joblo/posters/2019/03/avengers-endgame-poster-xl.jpg",
           "url2": "https://i.pinimg.com/originals/14/bd/68/14bd68f71316a3e17e8c5d7be142b69a.jpg",
-          "url3": "https://i.ebayimg.com/images/g/Mv8AAOSw2q9a4xZa/s-l300.jpg"
+          "url3": "https://i.ebayimg.com/images/g/Mv8AAOSw2q9a4xZa/s-l300.jpg",
+          "url1":"https://terrigen-cdn-dev.marvel.com/content/prod/1x/avengersendgame_lob_crd_05.jpg"
         }
       ]
     },
@@ -76,7 +76,7 @@
         {
           "cast_id": 1,
           "name1": "Christian Bale",
-          "name2": "Michael Caine"
+          "name2": "Michael Rozer Caine"
         }
       ],
       "Director": "Christopher Nolan",

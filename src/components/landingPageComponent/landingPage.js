@@ -6,21 +6,39 @@ import { useDispatch, useSelector } from "react-redux";
 import backgroundCover from "./../../assets/images/backgroundCover.jpg";
 import searchIcon from "./../../assets/images/searchicon.png";
 import { useHistory } from "react-router-dom";
+import Checkbox from "@material-ui/icons/CheckBox";
 
 const LandingPage = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const [searchTerm, setSearchTerm] = React.useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [pageNo, setPageNo] = useState(1);
   const [ratingFilter, setFilterQuery] = useState(0);
+  const [releaseDateQuery, setReleaseDateQuery] = useState(false);
+
   useEffect(() => {
-    dispatch(getMovieList({ searchTerm, ratingFilter, pageNo }));
-  }, [searchTerm, ratingFilter, pageNo]);
-  const movies = useSelector((state) => state.movieList.data) || [];
+    dispatch(
+      getMovieList({
+        searchTerm,
+        ratingFilter,
+        pageNo,
+        latestMovies: releaseDateQuery,
+      })
+    );
+  }, [searchTerm, ratingFilter, pageNo, releaseDateQuery]);
+  const movieList = useSelector((state) => state.movieList.data) || [];
+
+  // trigger input values
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
+  // sort by latest
+  const latestMovieToggle = () => {
+    setReleaseDateQuery(!releaseDateQuery);
+  };
+
+  // pagination
   const stepPage = (direction) => {
     let newPage = pageNo;
     if (direction === "FORWARD") {
@@ -35,11 +53,14 @@ const LandingPage = () => {
       }
     }
   };
+
+  // rating filter
   const stars = [1, 2, 3, 4, 5];
   const handleSelectStarRating = (val) => {
     setFilterQuery(val);
-    console.log(val)
   };
+
+  // selected movie dispatch
   const handleMovieSelection = (movie) => {
     history.push("/details");
     dispatch(setMovie(movie));
@@ -53,47 +74,86 @@ const LandingPage = () => {
       <FeatureContainer>
         <FilterButton>
           Filter By Rating
-          <RatingDropdown>
+          <StarContainer>
+            {" "}
             {stars.map((val) => (
               <Star
                 active={val <= ratingFilter}
                 onClick={() => handleSelectStarRating(val)}
               />
-            ))}
-          </RatingDropdown>
+            ))}{" "}
+          </StarContainer>
         </FilterButton>
         <Input
           type="text"
           placeholder="Search"
           value={searchTerm}
           onChange={handleChange}
-        />
+        />{" "}
+        <ToggleButton onClick={latestMovieToggle} active={releaseDateQuery}>
+          Sort By: Latest Movies
+        </ToggleButton>
+        {/* <Checkbox checked={checked} onChange={latestMovieToggle} inputProps={{ 'aria-label': 'primary checkbox' }} /> */}
       </FeatureContainer>
       <Body>
         <MovieList
-          moviesData={movies}
+          moviesData={movieList}
           handleMovieSelection={handleMovieSelection}
         />
       </Body>
       <PaginationContainer>
         <PageButton hover onClick={() => stepPage("BACKWARD")}>
-          {"<"}
+          {"<"}{" "}
         </PageButton>
         <PageButton>{pageNo}</PageButton>
         <PageButton hover onClick={() => stepPage("FORWARD")}>
-          {">"}
+          {">"}{" "}
         </PageButton>
       </PaginationContainer>
     </Container>
   );
 };
 
-// styles
-const PaginationContainer = styled.div`
+// css styles
+const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  background-image: url(${backgroundCover});
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+`;
+const TitleContainer = styled.div`
+  height: 4rem;
+  background-color: #031f3a;
+  display: flex;
+  flex-wrap: wrap;
+  font-style: italic;
+`;
+const FirstTitle = styled.h4`
+  color: #f50057;
+  font-size: 1.3rem;
+  margin: 1.2rem 0 0 10rem;
+`;
+const SecondTitle = styled.h4`
+  color: #ffffff;
+  font-size: 1rem;
+  margin: 1.5rem 0.5rem;
+`;
+const Body = styled.div`
+  flex: 1;
   display: flex;
   justify-content: center;
-  width: 100%;
-  overflow:hidden;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  & > div {
+    width: 13rem;
+    height: 25rem;
+    background: #233a50;
+    align-self: baseline;
+    margin: 2rem;
+  }
 `;
 const FeatureContainer = styled.div`
   display: flex;
@@ -112,21 +172,7 @@ const FilterButton = styled.div`
   margin-right: 0.3rem;
   border-radius: 4px;
   overflow: visible;
-  width:7rem;
-`;
-const Input = styled.input`
-background: #233a50;
-border: 1px solid #122832;
-padding: 0.5em;
-font-size: 1.3rem;
-width: 40rem;
-border-radius: 4px;
-color: #ffffff;
-outline: none;
-background-image: url(${searchIcon});
-background-repeat: no-repeat;
-background-size: 1.5rem 1.5rem;
-background-position: 39rem 0.5rem;
+  width: 7rem;
 `;
 const Star = styled.div`
   height: 1rem;
@@ -146,6 +192,46 @@ const Star = styled.div`
     39% 35%
   );
 `;
+const StarContainer = styled.div`
+  width: 100%;
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+const Input = styled.input`
+  background: #233a50;
+  border: 1px solid #122832;
+  padding: 0.5em;
+  font-size: 1.3rem;
+  width: 40rem;
+  border-radius: 4px;
+  color: #ffffff;
+  outline: none;
+  background-image: url(${searchIcon});
+  background-repeat: no-repeat;
+  background-size: 1.5rem 1.5rem;
+  background-position: 39rem 0.5rem;
+`;
+const ToggleButton = styled.div`
+  background: ${(props) => (props.active ? "white" : "#233a50")};
+  color: ${(props) => (props.active ? "#233a50" : "white")};
+  cursor: pointer;
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  max-width: 8rem;
+  text-align: center;
+  font-weight:500;
+`;
+
+const PaginationContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+`;
 const PageButton = styled.div`
   padding: 0.5rem;
   font-size: 0.8rem;
@@ -159,53 +245,6 @@ const PageButton = styled.div`
       props.hover && " background-color: #031f3a;transform: scale(1.2);"}
   }
   transition: all 0.2s ease;
-`;
-const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background-color: black;
-  background-image: url(${backgroundCover});
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-`;
-const TitleContainer = styled.div`
-  height: 4rem;
-  background-color: #031f3a;
-  display: flex;
-  flex-wrap: wrap;
-`;
-const FirstTitle = styled.h4`
-font-style: italic;
-color: #f50057;
-font-size: 1.3rem;
-margin: 1.2rem 0 0 10rem;
-`;
-const SecondTitle = styled.h4`
-  font-style: italic;
-  color: #ffffff;
-  font-size: 1rem;
-  margin:1.5rem 0.5rem;
-`;
-
-const Body = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  overflow-y: auto;
-  & > div {
-    width: 12rem;
-    align-self: baseline;
-    margin: 3rem;
-  }
-`;
-const RatingDropdown = styled.div`
-  width: 100%;
-  margin-top:0.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 `;
 
 export default LandingPage;
