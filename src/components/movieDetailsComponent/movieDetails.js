@@ -10,7 +10,7 @@ import yellow from "@material-ui/core/colors/purple";
 import { useSelector } from "react-redux";
 import illustration from "./../../assets/images/sorry_illustration.jpg";
 
-const star = yellow[800];
+const star = yellow[900];
 
 const useStyles = makeStyles((theme) => ({
   root: {
