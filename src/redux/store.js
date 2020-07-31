@@ -3,7 +3,7 @@ import counter from "./reducer";
 import thunk from "redux-thunk";
 const initValue = {
   movieList: { data: [], loader: false, error: null },
-  movieDetail: {},
+  movieDetail: null,
 };
 
 const composed = compose(

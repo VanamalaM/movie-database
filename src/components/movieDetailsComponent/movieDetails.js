@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import movieDetailBG from "./../../assets/images/movieDetailBG.jpg";
 import { makeStyles } from "@material-ui/core/styles";
@@ -42,7 +42,15 @@ const useStyles = makeStyles((theme) => ({
 const MovieDetails = () => {
   const classes = useStyles();
   const [booking, setBooking] = useState(false);
-  const movie = useSelector((state) => state.movieDetail);
+  const moviedata = useSelector((state) => state.movieDetail);
+  useEffect(() => {
+    if (moviedata) {
+      sessionStorage.movie = JSON.stringify(moviedata);
+    }
+  }, [moviedata]);
+  const session = JSON.parse(sessionStorage.movie || "{}");
+  const movie = moviedata ? moviedata : session;
+
   const handleBookings = (value) => {
     setBooking(value);
   };
